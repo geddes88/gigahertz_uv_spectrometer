@@ -1,0 +1,290 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.12"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>S-SDK-BTS2048: Fehlercodes &amp; Warnungen</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="GOlogo_nurG_volleAufloesung.jpg"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">S-SDK-BTS2048
+   &#160;<span id="projectnumber">Gigahertz-Optik Bibliothek für die Einbindung eines BTS2048.</span>
+   </div>
+   <div id="projectbrief">© bei Gigahertz-Optik GmbH. Alle Rechte vorbehalten</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Erzeugt von Doxygen 1.8.12 -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('warnings.html','');});
+</script>
+<div id="doc-content">
+<div class="header">
+  <div class="headertitle">
+<div class="title">Fehlercodes &amp; Warnungen </div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p>Eine Auflistung der Fehlercodes und Warnungen folgt.</p>
+<h1><a class="anchor" id="E"></a>
+Errors</h1>
+<ul>
+<li>-15000: Kommunikationsproblem</li>
+<li>-15001: Setup Datei ungültig für BTS2048</li>
+<li>-15002: Setup Datei konnte nicht geöffnet werden</li>
+<li>-15005: Kommunikationskanal kann nicht initialisiert werden</li>
+<li>-15006: zu niedrige Firmwareversion</li>
+<li>-15007: Problem beim Daten Senden</li>
+<li>-15008: Problem beim Daten Empfangen</li>
+<li>-15009: BTS2048 sendet einen nicht näher definierten Fehler</li>
+<li>-15010: delta uv limit &lt; 0</li>
+<li>-15014: error main data eeprom</li>
+<li>-15015: error color data eeprom</li>
+<li>-15016: dieser Befehl ist nicht gültig bei Kommunikation über USB</li>
+<li>-15017: error zero adjust integral amplifier</li>
+<li>-15020: error dark current measurement</li>
+<li>-15026: eine „exception“ wurde abgefangen</li>
+<li>-15029: Eine Einstellung wurde durchgeführt, die bei deaktiviertem integralem Sensor nicht möglich ist</li>
+<li>-15030: Messwert nicht verfügbar, da bei der letzten Messung wurde nicht integral gemessen wurde</li>
+<li>-15031: es sind keine Werte verfügbar</li>
+<li>-15032: es wurde ein falsches Passwort übergeben</li>
+<li>-15033: Kalibrierung: Bewertungsfunktion „Ist“ wurde nicht gesetzt</li>
+<li>-15034: Kalibrierung: Kalibrierlampenspektrum wurde nicht gesetzt</li>
+<li>-15035: Kalibrierung: Kalibriername wurde nicht gesetzt</li>
+<li>-15036: Kalibrierung: spektrale Kalibrierfaktoren wurden nicht gesetzt</li>
+<li>-15037: Kalibrierung: integraler Kalibrierfaktor wurde nicht gesetzt</li>
+<li>-15038: Kalibrierung: spektrale SI-Einheit wurde nicht gesetzt</li>
+<li>-15039: Kalibrierung: integrale SI-Einheit wurde nicht gesetzt</li>
+<li>-15040: Kalibrierung: Filterzuordnung wurde nicht gesetzt</li>
+<li>-15041: Der Wellenlängenbereich wurde zu groß gewählt bzw. die Schrittweiten zu klein, so dass sich eine größere Datenmenge als 3300 Werte ergeben würde</li>
+<li>-15042: Fehler bei der performancetechnischen Vorberechnung</li>
+<li>-15043: Bei der Berechnung der CRI-Werte ist ein Fehler aufgetreten</li>
+<li>-15044: Fehler bei der Berechnung des radiometrischen Wertes über die Wellenlänge</li>
+<li>-15045: Bei der Korrektur mit VL ist ein Fehler aufgetreten.<br />
+ Mögliche Ursachen: <br />
+ Y gleich „0“ -&gt; wahrscheinlich wurde die Farbberechnung nicht durchgeführt integraler Messwert gleich „0“ -&gt; Fehler bei integraler Messung oder es wurde nicht integral gemessen</li>
+<li>-15047: Zeitüberschreitung bei einer getriggerten Messung</li>
+<li>-15048: Wellenlänge 1 wurde größer oder gleich der Wellenlänge 2 gewählt</li>
+<li>-15049: falsches Format in der IP-Adresse</li>
+<li>-15051: Konfiugrationskonflikt (z.B. statischer Dunkelwert in Kombination mit dynamischer Integrationszeitermittlung)</li>
+<li>-15053: Farbberechnung nicht möglich (z.B. definierte Wellenlängen gehen nicht über den kompletten sichtbaren Bereich)</li>
+<li>-15054: Die augerufene Methode ist für den angeschlossenen Gerätetyp nicht anwendbar</li>
+<li>-15055: Es ist keine externe Stromversorgung angeschlossen</li>
+<li>-15061: Einstellung nicht möglich bei aktiviertem Trigger</li>
+<li>-15062: Einstellung bei deaktivierter spektralen Einheit nicht möglich</li>
+<li>-15063: Einstellung bei statischem dark offset nicht möglich</li>
+<li>-15064: Fehler bei der CQS-Berechnung</li>
+<li>-15065: Einstellung nicht möglich bei dynamischer Messzeitermittlung</li>
+<li>-15067: keine OOR Streulicht Kalibrierung</li>
+<li>-15068: Filterradfehler</li>
+<li>-15069: ungültiges Dunkelsignal</li>
+<li>-15070: OOR Streulicht Korrektur nicht gültig</li>
+<li>-15071: TM-30-15 Berechnungsfehler</li>
+<li>-15072: Firmware Fehler</li>
+<li>-15073: Fehler Flashpage</li>
+<li>-15074: TEC Temperatur Fehler</li>
+<li>-15076: Offset für diese Integrationzeit nicht hinterlegt</li>
+<li>-15077: Fehler beim Lesen der Datei</li>
+<li>-15078: Diese Einstellung ist mit einer virtuellen Kalibrierung nicht möglich</li>
+<li>-15079: Diese Einstellung ist bei einer Kombi Messung nicht möglich</li>
+<li>-15080: Diese Einstellung ist mit einer Streulicht-Kalibrierung nicht möglich</li>
+<li>-15081: Diese Einstellung ist bei hochaufgelöster Messung nicht möglich</li>
+<li>-15082: Diese Einstellung ist nicht mit statischer Integrationszeit möglich</li>
+<li>-15087: Nicht genug Speicher</li>
+<li>-15088: Spektral wurde nicht gemessen</li>
+<li>-15091: Nicht möglich mit dynamischem Dunkelmodus</li>
+<li>-15097: alte aktive Geometrie Substitutionsfaktoren ungültig</li>
+<li>-15098: Kalibrierung nicht gefunden</li>
+<li>-15099: Konfiguration nicht gefunden</li>
+<li>-15100: Parameter außerhalb des zulässigen Bereichs</li>
+<li>-15101: alte aktive DUT Substitutionsfaktoren ungültig</li>
+<li>-15102: Einstellung nicht möglich bei einem BTS2048-UV</li>
+<li>-15997: kein BTS2048 verbunden</li>
+<li>-15998: BTS2048 mit anderer Seriennummer als der erwarteten verbunden</li>
+<li>-15108: Fehler beim Beschreiben des Speichers(GO)</li>
+<li>-15109: Fehler beim beschreiben der Datei.</li>
+<li>-15110: Fehler SLMC Checksumme</li>
+<li>-15111: SLMC Matrix nicht verfügbar</li>
+<li>-15112: SLMC Matrix nicht geladen</li>
+<li>-15115: Asynchrone Messung ist aktiv</li>
+<li>-15116: Fehler asynchrone Messung</li>
+<li>-15117: Messung wurde abgebrochen</li>
+<li>-15118: Nicht alle Lampen wurden gemessen</li>
+<li>-15119: Falsche Kalibrierlampe</li>
+<li>-15120: Keine frei OORSLC Kalibrierung</li>
+<li>-15121: Low Counts Linearisierung nicht verfügbar</li>
+<li>-15122: Fehler LCLinearisierung Checksumme</li>
+<li>-15123: Falscher LCLinearisierungstyp</li>
+<li>-15999: unbekannter Fehler</li>
+<li>-15000: Kommunikationsproblem</li>
+<li>-15001: Setup Datei ungültig für BTS2048</li>
+<li>-15002: Setup Datei konnte nicht geöffnet werden</li>
+<li>-15004: az Modus außerhalb des zulässigen Bereichs (zulässig: 0 - 2)</li>
+<li>-15005: Kommunikationskanal kann nicht initialisiert werden</li>
+<li>-15006: zu niedrige Firmwareversion</li>
+<li>-15007: Problem beim Daten Senden</li>
+<li>-15008: Problem beim Daten Empfangen</li>
+<li>-15009: BTS2048 sendet einen nicht näher definierten Fehler</li>
+<li>-15010: delta uv limit &lt; 0</li>
+<li>-15014: error main data eeprom</li>
+<li>-15015: error color data eeprom</li>
+<li>-15016: dieser Befehl ist nicht gültig bei Kommunikation über USB</li>
+<li>-15017: error zero adjust integral amplifier</li>
+<li>-15020: error dark current measurement</li>
+<li>-15026: eine „exception“ wurde abgefangen</li>
+<li>-15027: Filter nicht gültig für aktuell ausgewählten Kalibriertabelleneintrag</li>
+<li>-15029: Eine Einstellung wurde durchgeführt, die bei deaktiviertem integralem Sensor nicht möglich ist</li>
+<li>-15030: Messwert nicht verfügbar, da bei der letzten Messung wurde nicht integral gemessen wurde</li>
+<li>-15031: es sind keine Werte verfügbar</li>
+<li>-15032: es wurde ein falsches Passwort übergeben</li>
+<li>-15033: Kalibrierung: Bewertungsfunktion „Ist“ wurde nicht gesetzt</li>
+<li>-15034: Kalibrierung: Kalibrierlampenspektrum wurde nicht gesetzt</li>
+<li>-15035: Kalibrierung: Kalibriername wurde nicht gesetzt</li>
+<li>-15036: Kalibrierung: spektrale Kalibrierfaktoren wurden nicht gesetzt</li>
+<li>-15037: Kalibrierung: integraler Kalibrierfaktor wurde nicht gesetzt</li>
+<li>-15038: Kalibrierung: spektrale SI-Einheit wurde nicht gesetzt</li>
+<li>-15039: Kalibrierung: integrale SI-Einheit wurde nicht gesetzt</li>
+<li>-15040: Kalibrierung: Filterzuordnung wurde nicht gesetzt</li>
+<li>-15041: Der Wellenlängenbereich wurde zu groß gewählt bzw. die Schrittweiten zu klein, so dass sich eine größere Datenmenge als 3300 Werte ergeben würde</li>
+<li>-15042: Fehler bei der performancetechnischen Vorberechnung</li>
+<li>-15043: Bei der Berechnung der CRI-Werte ist ein Fehler aufgetreten</li>
+<li>-15044: Fehler bei der Berechnung des radiometrischen Wertes über die Wellenlänge</li>
+<li>-15045: Bei der Korrektur mit VL ist ein Fehler aufgetreten.<br />
+ Mögliche Ursachen:<br />
+ Y gleich „0“ -&gt; wahrscheinlich wurde die Farbberechnung nicht durchgeführt integraler Messwert gleich „0“ -&gt; Fehler bei integraler Messung oder es wurde nicht integral gemessen</li>
+<li>-15047: Zeitüberschreitung bei einer getriggerten Messung</li>
+<li>-15048: Wellenlänge 1 wurde größer oder gleich der Wellenlänge 2 gewählt</li>
+<li>-15049: falsches Format in der IP-Adresse</li>
+<li>-15051: Konfiugrationskonflikt (z.B. statischer Dunkelwert in Kombination mit dynamischer Integrationszeitermittlung)</li>
+<li>-15053: Farbberechnung nicht möglich (z.B. definierte Wellenlängen gehen nicht über den kompletten sichtbaren Bereich)</li>
+<li>-15054: Die augerufene Methode ist für den angeschlossenen Gerätetyp nicht anwendbar</li>
+<li>-15055: Es ist keine externe Stromversorgung angeschlossen</li>
+<li>-15061: Einstellung nicht möglich bei aktiviertem Trigger</li>
+<li>-15062: Einstellung bei deaktivierter spektralen Einheit nicht möglich</li>
+<li>-15063: Einstellung bei statischem dark offset nicht möglich</li>
+<li>-15064: Fehler bei der CQS-Berechnung</li>
+<li>-15065: Einstellung nicht möglich bei dynamischer Messzeitermittlung</li>
+<li>-15067: keine OOR Streulicht Kalibrierung</li>
+<li>-15068: Filterradfehler</li>
+<li>-15069: ungültiges Dunkelsignal</li>
+<li>-15070: OOR Streulicht Korrektur nicht gültig</li>
+<li>-15071: TM-30* - -15 Berechnungsfehler</li>
+<li>-15072: Firmware Fehler</li>
+<li>-15073: Fehler Flashpage</li>
+<li>-15074: TEC Temperatur Fehler</li>
+<li>-15076: Offset für diese Integrationzeit nicht hinterlegt</li>
+<li>-15077: Fehler beim Lesen der Datei</li>
+<li>-15078: Diese Einstellung ist mit einer virtuellen Kalibrierung nicht möglich</li>
+<li>-15079: Diese Einstellung ist bei einer Kombi Messung nicht möglich</li>
+<li>-15080: Diese Einstellung ist mit einer Streulicht-Kalibrierung nicht möglich</li>
+<li>-15081: Diese Einstellung ist bei hochaufgelöster Messung nicht möglich</li>
+<li>-15082: Diese Einstellung ist nicht mit statischer Integrationszeit möglich</li>
+<li>-15087: Nicht genug Speicher</li>
+<li>-15088: Spektral wurde nicht gemessen</li>
+<li>-15091: Nicht möglich mit dynamischem Dunkelmodus</li>
+<li>-15092: nur bei USB Verbindung möglich</li>
+<li>-15093: Fehler Dunkelstrom Messung</li>
+<li>-15097: alte aktive Geometrie Substitutionsfaktoren ungültig</li>
+<li>-15098: Kalibrierung nicht gefunden</li>
+<li>-15099: Konfiguration nicht gefunden</li>
+<li>-15100: Parameter außerhalb des zulässigen Bereichs</li>
+<li>-15101: alte aktive DUT Substitutionsfaktoren ungültig</li>
+<li>-15102: Einstellung nicht möglich bei einem BTS2048-UV</li>
+<li>-15997: kein BTS2048 verbunden</li>
+<li>-15998: BTS2048 mit anderer Seriennummer als der erwarteten verbunden</li>
+<li>-15108: Fehler beim Beschreiben des Speichers(GO)</li>
+<li>-15109: Fehler beim beschreiben der Datei.</li>
+<li>-15110: Fehler SLMC Checksumme</li>
+<li>-15111: SLMC Matrix nicht verfügbar</li>
+<li>-15112: SLMC Matrix nicht geladen</li>
+<li>-15115: Asynchrone Messung ist aktiv</li>
+<li>-15116: Fehler asynchrone Messung</li>
+<li>-15117: Messung wurde abgebrochen</li>
+<li>-15118: Nicht alle Lampen wurden gemessen</li>
+<li>-15119: Falsche Kalibrierlampe</li>
+<li>-15120: Keine frei OORSLC Kalibrierung</li>
+<li>-15121: Low Counts Linearisierung nicht verfügbar</li>
+<li>-15122: Fehler LCLinearisierung Checksumme</li>
+<li>-15123: Falscher LCLinearisierungstyp</li>
+<li>-15999: unbekannter Fehler</li>
+</ul>
+<h1><a class="anchor" id="W"></a>
+Warnings</h1>
+<ul>
+<li>15003: file not found: es wurden bislang keine Defaultdaten gespeichert. Daher existiert auch keine Defaultdatei</li>
+<li>15011: die integrale Einheit meldet einen „overload“</li>
+<li>15012: die integrale Einheit meldet einen underload</li>
+<li>15023: die spektrale Einheit meldet einen “overload”</li>
+<li>15025: die spektrale Einheit meldet einen „underload“</li>
+<li>15028: die Integrationszeit für die integrale Einheit wurde an das zulässige Raster angepasst</li>
+<li>15046: wenn der dark mode auf „static“ steht und die Integrationszeit der spektralen Einheit auf „dynamische Ermittlung“ umgeschaltet wird, wird der „dark mode“ automatisch auf „dynamic“ geändert, da in diesem Fall der dark mode „static“ nicht zulässig ist</li>
+<li>15052: Die Farbberechnung wurde abgeschaltet, da der definierte Wellenlängenbereich nicht den kompletten sichtbaren Bereich (380nm – 780nm) abdeckt</li>
+<li>15056: Die Integrationszeit wurde angepasst, da die Kühlung ausgeschaltet wurde</li>
+<li>15057: die spektrale Einheit meldet „overload“, die integrale Einheit meldet „overload“</li>
+<li>15058: die spektrale Einheit meldet „overload“, die integrale Einheit meldet „underload“</li>
+<li>15059: Das Subsitutionskorrekturmodul hat festgestellt, dass zwischen vorheriger und aktueller Messung eine andere Integrationszeit verwendet wurde. Beide notwendigen Messungen müssen mit der gleichen Integrationszeit durchgeführt werden.</li>
+<li>15060: Undefinierter Integraler Fehler</li>
+<li>15066: OOR Modus wurde geändert</li>
+<li>15075: Falsche Filterposition für Messung</li>
+<li>15083: Zeitermittlung der Integrationszeit wurde geändert.</li>
+<li>15084:Messmodus mit hoher Auflösung wurde geändert.</li>
+<li>15085: Messung dauert über 10 Minuten</li>
+<li>15086: Anzahl Mittelungen sehr niedrig (&lt;10)</li>
+<li>15089: undefinierter spektraler Fehler</li>
+<li>15090: Integraler Bereich wurde geändert</li>
+<li>15094: Array wenig Signal und integraler Overload</li>
+<li>15095: Array wenig Signal und integraler Underload</li>
+<li>15098: Beim Durchsuchen des Konfigurationsspeichers wurde auf einen Index zugegriffen, der nicht belegt ist.</li>
+<li>15103: Der eingestellte a(z)-mode (spectral mismatch correction) ist mit der letzten aufgerufenen Einstellung nicht kompatibel und wurde automatisch angepasst.</li>
+<li>15104: Die Anpassung der spektralen Daten aufgrund einer integralen Messung wurde ausgeschaltet, da der integrale Sensor deaktiviert wurde.</li>
+<li>15105: Trigger deaktiviert</li>
+<li>15106: Triggerquelle wurde automatisch von intern (Triggerung durch integralen Level) auf extern geändert, da der integrale Sensor deaktiviert wurde.</li>
+<li>15107: Kühlung nicht in Ordnung</li>
+<li>15113: SLMC Matrix muss geldaen werden</li>
+<li>15114: keine asynchrone Messung möglich </li>
+</ul>
+</div></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- HTML footer for doxygen 1.8.12-->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+   <!--<!li class="footer">Erzeugt von 
+   <a href="http://www.doxygen.org/index.html">
+   <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.12 </li>-->
+  </ul>
+</div>
+</body>
+</html>

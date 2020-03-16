@@ -1,0 +1,108 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.12"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>S-SDK-BTS2048: GOMDBTS2048_getHandle</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="GOlogo_nurG_volleAufloesung.jpg"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">S-SDK-BTS2048
+   &#160;<span id="projectnumber">Gigahertz-Optik Bibliothek für die Einbindung eines BTS2048.</span>
+   </div>
+   <div id="projectbrief">© bei Gigahertz-Optik GmbH. Alle Rechte vorbehalten</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Erzeugt von Doxygen 1.8.12 -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('group__standard_gadb1f231e318cf49d96f200ecbbcb8391.html','');});
+</script>
+<div id="doc-content">
+<div class="contents">
+<a id="gadb1f231e318cf49d96f200ecbbcb8391"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gadb1f231e318cf49d96f200ecbbcb8391">&sect;&nbsp;</a></span>GOMDBTS2048_getHandle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int __stdcall GOMDBTS2048_getHandle </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>device</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>handle</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Nach der Freischaltung des SDK muss grundsätzlich diese Methode als nächstes aufgerufen werden, um das BTS2048 zu initialisieren. Der Parameter „handle“ beinhaltet eine eindeutige Zuordnungsnummer zum instanziierten Messgerät, die beim Aufruf aller weiteren Methoden als erster Parameter übergeben werden muss.<br />
+ Nachdem der erste Handle gefunden wurde, liefert der nächste Aufruf von getHandle(BTS2048_0, &amp;handle), das nächste angeschlossene BTS2048, sofern der Handle des ersten Geräts nicht wieder freigegeben wurde.</p>
+<dl class="params"><dt>Parameter</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">device</td><td>Nullterminierter String, der das gewünschte zu initialisierende Gerät kennzeichnet. Der String hat immer folgenden Aufbau: “BTS2048_&lt;serial&gt;”. &lt;serial&gt; steht als Platzhalter für die Seriennummer des Messgeräts. Der String „BTS2048_5678“ initialisiert z.B. das BTS2048 mit der Seriennummer 5678. Eine weitere Möglichkeit ist die Übergabe von NULL. Damit wird das erste unter Windows registrierte BTS2048 initialisiert.<br />
+ Falls Sie ein Gerät über LAN mit einer bestimmten IP Adresse (siehe setIPAdress()) initialisieren wollen, können Sie den Term "_IPXXX.XXX.XXX.XXX" an den Initialisierungs-String hängen (z.B. "BTS2048_0_IP192.168.002.074") </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">handle</td><td>Pointer auf einen Integer Wert; dieser Wert beinhaltet nach Rücksprung einen Handle &gt; 0, wenn die Initialisierung erfolgreich war, ansonsten 0 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rückgabe</dt><dd>Rückgabewert: Integer Wert; bei Werten ungleich „0“ siehe Rückgabewerttabelle. </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- HTML footer for doxygen 1.8.12-->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="group__standard.html">Standard SDK Methoden</a></li>
+   <!--<!li class="footer">Erzeugt von 
+   <a href="http://www.doxygen.org/index.html">
+   <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.12 </li>-->
+  </ul>
+</div>
+</body>
+</html>

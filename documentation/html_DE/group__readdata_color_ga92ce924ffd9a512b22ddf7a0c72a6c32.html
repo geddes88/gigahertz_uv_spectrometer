@@ -1,0 +1,163 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.12"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>S-SDK-BTS2048: GOMDBTS2048_getColor</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="GOlogo_nurG_volleAufloesung.jpg"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">S-SDK-BTS2048
+   &#160;<span id="projectnumber">Gigahertz-Optik Bibliothek für die Einbindung eines BTS2048.</span>
+   </div>
+   <div id="projectbrief">© bei Gigahertz-Optik GmbH. Alle Rechte vorbehalten</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Erzeugt von Doxygen 1.8.12 -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('group__readdata_color_ga92ce924ffd9a512b22ddf7a0c72a6c32.html','');});
+</script>
+<div id="doc-content">
+<div class="contents">
+<a id="ga92ce924ffd9a512b22ddf7a0c72a6c32"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga92ce924ffd9a512b22ddf7a0c72a6c32">&sect;&nbsp;</a></span>GOMDBTS2048_getColor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int __stdcall GOMDBTS2048_getColor </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>UpperX</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>UpperY</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>UpperZ</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>us</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>vs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>CCT</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>domWL</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Diese Methode liefert alle berechneten Farbwerte auf Basis einer spektralen Messung. Die Spektralmessung und die Farbberechnung muss vor der Messung aktiviert worden sein.</p>
+<dl class="params"><dt>Parameter</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>Integer Wert &gt; 0 zur eindeutigen Identifikation des instanziierten BTS2048; dieser Wert wird von der Methode getHandle zurückgeliefert. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">UpperX</td><td>Pointer auf Double Wert, enthält “groß” X </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">UpperY</td><td>Pointer auf Double Wert, enthält “groß” Y </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">UpperZ</td><td>Pointer auf Double Wert, enthält “groß” Z </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">x</td><td>Pointer auf Double Wert, enthält x entsprechend dem CIE1931 Farbraum </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">y</td><td>Pointer auf Double Wert, enthält y entsprechend dem CIE1931 Farbraum </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">us</td><td>Pointer auf Double Wert, enthält u‘ entsprechend dem CIE1976 Farbraum </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">vs</td><td>Pointer auf Double Wert, enthält v‘ entsprechend dem CIE1976 Farbraum </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">CCT</td><td>Pointer auf Double Wert, „Correlated Color Temperature“, die Farbtermperatur in [K] </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">domWL</td><td>Pointer auf Double Wert, enthält die dominante Wellenlänge </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rückgabe</dt><dd>Rückgabewert: Integer Wert; bei Werten ungleich „0“ siehe Rückgabewerttabelle.</dd></dl>
+<p><br />
+<em>Aufrufbeispiel:</em> </p><div class="fragment"><div class="line"><span class="keywordtype">int</span> handle;</div><div class="line"><a class="code" href="group__standard_gadb1f231e318cf49d96f200ecbbcb8391.html#gadb1f231e318cf49d96f200ecbbcb8391">GOMDBTS2048_getHandle</a>(NULL, &amp;handle);</div><div class="line"><a class="code" href="group__color_calc_gaf2fc662857a3c6e28b2ac69da17df3f0.html#gaf2fc662857a3c6e28b2ac69da17df3f0">GOMDBTS2048_setColorCalculation</a>(handle, <span class="keyword">true</span>);</div><div class="line"><a class="code" href="group__measurement_ga73108012a71662320b1f7ab17f06aeea.html#ga73108012a71662320b1f7ab17f06aeea">GOMDBTS2048_measure</a>();</div><div class="line"><span class="keywordtype">double</span> X, Y, Z, x, y, us, vs, cct, domWL;</div><div class="line"><a class="code" href="group__readdata_color_ga92ce924ffd9a512b22ddf7a0c72a6c32.html#ga92ce924ffd9a512b22ddf7a0c72a6c32">GOMDBTS2048_getColor</a>(handle, &amp;X, &amp;Y, &amp;Z, &amp;x, &amp;y, &amp;us, &amp;vs, &amp;cct, &amp;domWL);</div><div class="line"><a class="code" href="group__standard_gaace5c1340e1331869519415f135c3a98.html#gaace5c1340e1331869519415f135c3a98">GOMDBTS2048_releaseHandle</a>(handle);</div></div><!-- fragment --> 
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- HTML footer for doxygen 1.8.12-->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="group__readdata_color.html">Methoden zum auslesen der Farbwerte</a></li>
+   <!--<!li class="footer">Erzeugt von 
+   <a href="http://www.doxygen.org/index.html">
+   <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.12 </li>-->
+  </ul>
+</div>
+</body>
+</html>

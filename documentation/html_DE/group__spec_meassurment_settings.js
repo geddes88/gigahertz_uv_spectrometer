@@ -1,0 +1,26 @@
+var group__spec_meassurment_settings =
+[
+    [ "GOMDBTS2048_spectralSetEnabled", "group__spec_meassurment_settings_gab84669bbc1bcb80656f75bbd488c048b.html#gab84669bbc1bcb80656f75bbd488c048b", null ],
+    [ "GOMDBTS2048_spectralIsEnabled", "group__spec_meassurment_settings_ga6c3d106523033f7c75f54180ccf109e7.html#ga6c3d106523033f7c75f54180ccf109e7", null ],
+    [ "GOMDBTS2048_spectralSetOffsetMode", "group__spec_meassurment_settings_gacb45e37ea653749367a9bac199d2d33a.html#gacb45e37ea653749367a9bac199d2d33a", null ],
+    [ "GOMDBTS2048_spectralGetOffsetMode", "group__spec_meassurment_settings_ga03b4bbe077c172c9d49eabf64bad3fae.html#ga03b4bbe077c172c9d49eabf64bad3fae", null ],
+    [ "GOMDBTS2048_OORSLCorrectionSetMode", "group__spec_meassurment_settings_gac33e4ae89660bd26b0906b882030ddf0.html#gac33e4ae89660bd26b0906b882030ddf0", null ],
+    [ "GOMDBTS2048_OORSLCorrectionGetMode", "group__spec_meassurment_settings_gab68a7a0ffd011ffc9fb233543c680c18.html#gab68a7a0ffd011ffc9fb233543c680c18", null ],
+    [ "GOMDBTS2048_spectralGetIntegrationTimeRangeInus", "group__spec_meassurment_settings_ga35e5877f47db2d4e38d788f9e6dda734.html#ga35e5877f47db2d4e38d788f9e6dda734", null ],
+    [ "GOMDBTS2048_spectralSetIntegrationTimeInus", "group__spec_meassurment_settings_gaaf430e1248021030e365020cf4174e04.html#gaaf430e1248021030e365020cf4174e04", null ],
+    [ "GOMDBTS2048_spectralGetIntegrationTimeInus", "group__spec_meassurment_settings_ga9e2d27f751bab8b55019ec5cfc5dc4f0.html#ga9e2d27f751bab8b55019ec5cfc5dc4f0", null ],
+    [ "GOMDBTS2048_spectralSetMeasurementTimeInUs", "group__spec_meassurment_settings_ga697856b952a61c4355443e05696cc2f2.html#ga697856b952a61c4355443e05696cc2f2", null ],
+    [ "GOMDBTS2048_spectralGetMeasurementTimeInUs", "group__spec_meassurment_settings_ga5791e25ced8a662ac5c0a5b8834b9e57.html#ga5791e25ced8a662ac5c0a5b8834b9e57", null ],
+    [ "GOMDBTS2048_spectralSetDynamicTimeMode", "group__spec_meassurment_settings_ga0bd1ab5297a9e2a4fb0e59ef97128209.html#ga0bd1ab5297a9e2a4fb0e59ef97128209", null ],
+    [ "GOMDBTS2048_spectralGetDynamicTimeMode", "group__spec_meassurment_settings_ga5101489cc83f1d22de6535260ca746a5.html#ga5101489cc83f1d22de6535260ca746a5", null ],
+    [ "GOMDBTS2048_spectralSetMaxIntegrationTimeInUs", "group__spec_meassurment_settings_ga589f9347e9b8c9dba55b42bc7c84367c.html#ga589f9347e9b8c9dba55b42bc7c84367c", null ],
+    [ "GOMDBTS2048_spectralGetMaxIntegrationTimeInUs", "group__spec_meassurment_settings_gaee86cc5d7a3b694b8b8d7bbe894d19ee.html#gaee86cc5d7a3b694b8b8d7bbe894d19ee", null ],
+    [ "GOMDBTS2048_spectralSetMaxMeasurementTimeInUs", "group__spec_meassurment_settings_gaa0aacce4025dc8ded1ba4c0fa26fda6f.html#gaa0aacce4025dc8ded1ba4c0fa26fda6f", null ],
+    [ "GOMDBTS2048_spectralGetMaxMeasurementTimeInUs", "group__spec_meassurment_settings_gae630f0e768a3818ddba5b3402aea0f62.html#gae630f0e768a3818ddba5b3402aea0f62", null ],
+    [ "GOMDBTS2048_spectralSetNrOfScans", "group__spec_meassurment_settings_ga6edf1f81f20705e4697d541ccb49db9c.html#ga6edf1f81f20705e4697d541ccb49db9c", null ],
+    [ "GOMDBTS2048_spectralGetNrOfScans", "group__spec_meassurment_settings_gaadd28fb386b9e5aec1c432c33f24331a.html#gaadd28fb386b9e5aec1c432c33f24331a", null ],
+    [ "GOMDBTS2048_setWavelengthRange", "group__spec_meassurment_settings_gab7c64d7815f71cec3e49ab7d9f0223c8.html#gab7c64d7815f71cec3e49ab7d9f0223c8", null ],
+    [ "GOMDBTS2048_getWavelengthRange", "group__spec_meassurment_settings_gadbb84b8767d8ed57fe95d49e22bcd551.html#gadbb84b8767d8ed57fe95d49e22bcd551", null ],
+    [ "GOMDBTS2048_getMinValidWavelength", "group__spec_meassurment_settings_gaa91a0521b2d7978b433bcde69d3f1de0.html#gaa91a0521b2d7978b433bcde69d3f1de0", null ],
+    [ "GOMDBTS2048_getMaxValidWavelength", "group__spec_meassurment_settings_ga9657463d24f3f07709d6c1b509842263.html#ga9657463d24f3f07709d6c1b509842263", null ]
+];

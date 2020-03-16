@@ -1,0 +1,27 @@
+var group__standard =
+[
+    [ "GOMDBTS2048_setPassword", "group__standard_gaaf3819f43895a1e63c4400321121d3e1.html#gaaf3819f43895a1e63c4400321121d3e1", null ],
+    [ "GOMDBTS2048_getDLLVersion", "group__standard_gabc3cb721145cb05fa90ef0f1c524d9d4.html#gabc3cb721145cb05fa90ef0f1c524d9d4", null ],
+    [ "GOMDBTS2048_getDeviceList", "group__standard_ga358027508ae064cb921a55d55788bfb7.html#ga358027508ae064cb921a55d55788bfb7", null ],
+    [ "GOMDBTS2048_getHandle", "group__standard_gadb1f231e318cf49d96f200ecbbcb8391.html#gadb1f231e318cf49d96f200ecbbcb8391", null ],
+    [ "GOMDBTS2048_releaseHandle", "group__standard_gaace5c1340e1331869519415f135c3a98.html#gaace5c1340e1331869519415f135c3a98", null ],
+    [ "GOMDBTS2048_getFirmwareVersion", "group__standard_gae890d52c4a2c448e0455464413df898e.html#gae890d52c4a2c448e0455464413df898e", null ],
+    [ "GOMDBTS2048_getSerialNumber", "group__standard_ga22ed0997af8b1c97659ae8491bde4d99.html#ga22ed0997af8b1c97659ae8491bde4d99", null ],
+    [ "GOMDBTS2048_getType", "group__standard_ga4ab964a704ba41a786216ce03857145b.html#ga4ab964a704ba41a786216ce03857145b", null ],
+    [ "GOMDBTS2048_isBTS2048VL", "group__standard_gaf72865c9626406bc578c11afa0d92ede.html#gaf72865c9626406bc578c11afa0d92ede", null ],
+    [ "GOMDBTS2048_isBTS2048BS", "group__standard_ga57b9df5aba3d07f315fbaaff6ff2dc8e.html#ga57b9df5aba3d07f315fbaaff6ff2dc8e", null ],
+    [ "GOMDBTS2048_isBTS2048UV", "group__standard_ga8798ec3a4b53cf68fd8b515374251dd8.html#ga8798ec3a4b53cf68fd8b515374251dd8", null ],
+    [ "GOMDBTS2048_isBTS2048VLTEC", "group__standard_ga2c857b59f52aa8d2740edbb50576d0eb.html#ga2c857b59f52aa8d2740edbb50576d0eb", null ],
+    [ "GOMDBTS2048_isBTS2048Type", "group__standard_gae03b4ae5287711d88130235dd791202a.html#gae03b4ae5287711d88130235dd791202a", null ],
+    [ "GOMDBTS2048_setCooling", "group__standard_gaae9ef7d7aeebcc9409bd025c719e614b.html#gaae9ef7d7aeebcc9409bd025c719e614b", null ],
+    [ "GOMDBTS2048_getCoolingState", "group__standard_ga1a145cfd60185fb7fc814e30f8db93c9.html#ga1a145cfd60185fb7fc814e30f8db93c9", null ],
+    [ "GOMDBTS2048_hasCooling", "group__standard_ga24a3a0fbdb2316f304fa137ff42a0bc6.html#ga24a3a0fbdb2316f304fa137ff42a0bc6", null ],
+    [ "GOMDBTS2048_getMaxADC", "group__standard_ga2d02f7ffe8cad98e1c3f29b1fc1f3912.html#ga2d02f7ffe8cad98e1c3f29b1fc1f3912", null ],
+    [ "GOMDBTS2048_getNoOfPixels", "group__standard_ga5a7c9502824702356703f0a1abe3cdde.html#ga5a7c9502824702356703f0a1abe3cdde", null ],
+    [ "GOMDBTS2048_setIPAddress", "group__standard_ga4055b436ee428c7c5b1fcfa5f08631f6.html#ga4055b436ee428c7c5b1fcfa5f08631f6", null ],
+    [ "GOMDBTS2048_getIPAddress", "group__standard_ga83eb258376927776f5b9af8fb190bee9.html#ga83eb258376927776f5b9af8fb190bee9", null ],
+    [ "GOMDBTS2048_isDHCP", "group__standard_ga8b442683b44a8b7600774e9962e75d25.html#ga8b442683b44a8b7600774e9962e75d25", null ],
+    [ "GOMDBTS2048_setDHCPServer", "group__standard_ga788f541015313ca555840267dbff9830.html#ga788f541015313ca555840267dbff9830", null ],
+    [ "GOMDBTS2048_isDHCPServer", "group__standard_gaf1104c898e86a1240e030e74bc6385d3.html#gaf1104c898e86a1240e030e74bc6385d3", null ],
+    [ "GOMDBTS2048_isConnected", "group__standard_ga5b05257325c9db86a1627e1eee02aa60.html#ga5b05257325c9db86a1627e1eee02aa60", null ]
+];
