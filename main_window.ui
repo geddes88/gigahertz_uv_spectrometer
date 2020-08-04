@@ -18,10 +18,11 @@
         <property name="width">212</property>
         <layout>
           <property name="column">0</property>
-          <property name="columnspan">3</property>
+          <property name="columnspan">2</property>
           <property name="propagate">True</property>
           <property name="row">0</property>
           <property name="rowspan">1</property>
+          <property name="sticky">nsew</property>
         </layout>
         <child>
           <object class="ttk.Label" id="utctime_label">
@@ -178,18 +179,6 @@
       </object>
     </child>
     <child>
-      <object class="ttk.Separator" id="Separator_3">
-        <property name="orient">horizontal</property>
-        <layout>
-          <property name="column">0</property>
-          <property name="columnspan">4</property>
-          <property name="pady">5</property>
-          <property name="propagate">True</property>
-          <property name="row">1</property>
-        </layout>
-      </object>
-    </child>
-    <child>
       <object class="ttk.Labelframe" id="daily_info_frame">
         <property name="borderwidth">10</property>
         <property name="height">200</property>
@@ -200,7 +189,7 @@
           <property name="columnspan">1</property>
           <property name="propagate">True</property>
           <property name="row">2</property>
-          <property name="sticky">nw</property>
+          <property name="sticky">nsw</property>
           <rows>
             <row id="0">
               <property name="minsize">1</property>
@@ -381,14 +370,12 @@
     <child>
       <object class="ttk.Labelframe" id="commands_frame">
         <property name="borderwidth">10</property>
-        <property name="height">412</property>
         <property name="text" translatable="yes">Basic Commands</property>
         <layout>
           <property name="column">1</property>
-          <property name="ipady">20</property>
           <property name="propagate">True</property>
           <property name="row">2</property>
-          <property name="sticky">n</property>
+          <property name="sticky">nse</property>
         </layout>
         <child>
           <object class="ttk.Button" id="routine_obs_button">
@@ -479,10 +466,11 @@
         <property name="width">400</property>
         <layout>
           <property name="column">0</property>
-          <property name="columnspan">3</property>
+          <property name="columnspan">2</property>
           <property name="propagate">True</property>
           <property name="row">4</property>
           <property name="rowspan">1</property>
+          <property name="sticky">nsew</property>
         </layout>
         <child>
           <object class="tk.Scrollbar" id="log_out_scrollbar">
@@ -512,55 +500,34 @@
       </object>
     </child>
     <child>
-      <object class="ttk.Separator" id="Separator_6">
-        <property name="orient">horizontal</property>
+      <object class="ttk.Labelframe" id="Labelframe_1">
+        <property name="borderwidth">10</property>
+        <property name="height">200</property>
+        <property name="text" translatable="yes">Current Status</property>
+        <property name="width">200</property>
         <layout>
           <property name="column">0</property>
-          <property name="columnspan">4</property>
-          <property name="pady">5</property>
-          <property name="propagate">True</property>
-          <property name="row">3</property>
-        </layout>
-      </object>
-    </child>
-    <child>
-      <object class="ttk.Label" id="current_status_label">
-        <property name="anchor">center</property>
-        <property name="background">#ffffff</property>
-        <property name="justify">center</property>
-        <property name="relief">sunken</property>
-        <property name="text" translatable="yes">Current Status: Idle</property>
-        <property name="width">84</property>
-        <layout>
-          <property name="column">0</property>
-          <property name="columnspan">3</property>
-          <property name="propagate">True</property>
-          <property name="row">6</property>
-        </layout>
-      </object>
-    </child>
-    <child>
-      <object class="ttk.Separator" id="Separator_1">
-        <property name="orient">horizontal</property>
-        <layout>
-          <property name="column">0</property>
-          <property name="columnspan">4</property>
-          <property name="pady">5</property>
+          <property name="columnspan">2</property>
           <property name="propagate">True</property>
           <property name="row">5</property>
+          <property name="sticky">ew</property>
         </layout>
-      </object>
-    </child>
-    <child>
-      <object class="tk.Canvas" id="image_canvas">
-        <property name="height">300</property>
-        <property name="width">300</property>
-        <layout>
-          <property name="column">0</property>
-          <property name="columnspan">3</property>
-          <property name="propagate">True</property>
-          <property name="row">7</property>
-        </layout>
+        <child>
+          <object class="ttk.Label" id="current_status_label">
+            <property name="anchor">center</property>
+            <property name="background">#ffffff</property>
+            <property name="font">TkDefaultFont</property>
+            <property name="relief">sunken</property>
+            <property name="text" translatable="yes">Label_2</property>
+            <property name="width">89</property>
+            <layout>
+              <property name="column">0</property>
+              <property name="propagate">True</property>
+              <property name="row">0</property>
+              <property name="sticky">nsew</property>
+            </layout>
+          </object>
+        </child>
       </object>
     </child>
   </object>

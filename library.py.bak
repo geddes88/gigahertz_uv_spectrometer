@@ -28,27 +28,25 @@ import numpy as np
 import os.path
 import subprocess
 import win32com.client
-import configparser
+import ConfigParser
 from threading import Thread
 from scipy.stats import pearsonr
 import pandas as pd
 import shutil
 
-    
 class ThreadWithReturnValue(Thread):
     def __init__(self, group=None, target=None, name=None,
                  args=(), kwargs={}, Verbose=None):
-        Thread.__init__(self, group, target, name, args, kwargs)
+        Thread.__init__(self, group, target, name, args, kwargs, Verbose)
         self._return = None
     def run(self):
-        print(type(self._target))
-        if self._target is not None:
-            self._return = self._target(*self._args,
-                                                **self._kwargs)
-    def join(self, *args):
-        Thread.join(self, *args)
+        if self._Thread__target is not None:
+            self._return = self._Thread__target(*self._Thread__args,
+                                                **self._Thread__kwargs)
+    def join(self):
+        Thread.join(self)
         return self._return
-    
+        
 def find_next_time(array,value):
     diff=(array-value)
     for i in range(len(diff)):
@@ -152,7 +150,7 @@ def config_out(section,config):
             if dict1[option] == -1:
                 DebugPrint("skip: %s" % option)
         except:
-            print(("exception on %s!" % option))
+            print("exception on %s!" % option)
             dict1[option] = None
 
     return dict1
@@ -245,7 +243,7 @@ def format_time(datetime_obj):
 
 def dict_to_panda(dictionary):
     panda_out=pd.DataFrame()
-    for key in list(dictionary.keys()):
+    for key in dictionary.keys():
         panda_out[key]=[dictionary[key]]
     return panda_out
 
@@ -320,7 +318,7 @@ def dynamic_schedule(lat,lon,utc_offset,psurf,temp,twilight_minsza,twilight_maxs
             schedule_times.append(times_local[index_2+afternoon_start])
             task_ids.append(sza)
     #time.sleep(120)
-    schedule_times,task_ids=list(zip(*sorted(zip(schedule_times,task_ids))))
+    schedule_times,task_ids=zip(*sorted(zip(schedule_times,task_ids)))
     schedule_times=np.array(schedule_times)
     task_ids=np.array(task_ids)
     return high_sun_time, high_sun_sza, low_sun_time, low_sun_sza, sunrise, sunset,day_length, schedule_times,task_ids

@@ -5,21 +5,21 @@ Created on Wed Apr 19 13:25:38 2017
 @author: geddesag
 """
 
-import tkinter as tk
+import Tkinter as tk
 import pygubu
 import datetime
 import library
 import threading
 import matplotlib.pyplot as plt
 from library import *#dynamic_schedule, format_time,sunzen_ephem,get_file_name,config_out
-from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg, NavigationToolbar2Tk
+from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg, NavigationToolbar2TkAgg
 import random
 from matplotlib.pyplot import *
 import pyqtgraph as pg
 from pyqtgraph.Qt import QtGui, QtCore
 from command_library import *
 from PIL import ImageTk, Image
-import queue
+import Queue
 from timeit import default_timer as timer
 
 pg.setConfigOption('background', 'w')
@@ -35,6 +35,7 @@ class Application:
         self.root = tk.Tk()
         self.root.title('GigaPy v1.0')
         self.root.protocol('WM_DELETE_WINDOW', self.on_close)
+
         #1: Create a builder
         self.builder = builder = pygubu.Builder()
         self.load_flag=0
@@ -96,18 +97,18 @@ class Application:
         self.scan_prop_button.config(command=self.open_properties)
 
         self.plot_window=FigureCanvasTkAgg(f,self.root)
-        self.plot_window.draw()
+        self.plot_window.show()
         self.plot_window.get_tk_widget().grid(column=1,row=0)
         self.schedule_status=0
         self.task_run=0
         toolbar_frame=tk.Frame(self.root)
         toolbar_frame.grid(row=1,column=1,sticky='w')
-        toolbar=NavigationToolbar2Tk(self.plot_window,toolbar_frame)
+        toolbar=NavigationToolbar2TkAgg(self.plot_window,toolbar_frame)
         toolbar.update()
         self.reset_flag=1
 
-        # self.t2=threading.Thread(target=self.threaded_solar)
-        # self.t2.start()
+        self.t2=threading.Thread(target=self.threaded_solar)
+        self.t2.start()
 
 
         self.nscans = tk.IntVar()
@@ -124,13 +125,11 @@ class Application:
         self.manual_int.set(int(scan_prop_defaults['manual_int']))
         self.dyn_set_int.set('true'==scan_prop_defaults['dynamic_int'].lower())
         self.hdnscans.set(int(scan_prop_defaults['hdnscans']))
-        self.threaded_solar()
 
 #        self.giga=gigahertz()
         giga.dynamic_time_mode=self.dyn_set_int.get()
         giga.integration_time=self.manual_int.get()
-       # print(giga.dynamic_time_mode)
-        self.toggle_schedule_run()
+        print giga.dynamic_time_mode
         self.update_clock_main()
         self.root.mainloop()
         
@@ -196,16 +195,13 @@ class Application:
     
     def on_close(self):
         """Function to decide what to do when the gui is closed"""
-        print('closing')
-       # giga.close_instrument()
+        giga.close_instrument()
         self.root.destroy()
     
     def on_close2(self):
         """Function to decide what to do when the gui is closed"""
-        print('closing')
-
         self.root3.destroy()
-
+           
 
     def toggle_schedule_run(self):
         """Turns the schedule on and off and reload the schedule if it has changed
@@ -237,19 +233,7 @@ class Application:
         
 
     def threaded_solar(self):
-        
-       # self.high_sun_time,self.high_sun_sza,self.low_sun_time,self.low_sun_sza,self.sunrise,self.sunset,self.day_length, self.schedule,self.tasks_out=dynamic_schedule(float(site['latitude']),float(site['longitude']),float(site['timezone']),float(site['pressure']),float(site['temperature']),float(site['twilight_minsza']),float(site['twilight_maxsza']),float(site['normal_step']),float(site['twilight_step']))
-        
-        t2=ThreadWithReturnValue(target=dynamic_schedule,args=(float(site['latitude']),float(site['longitude']),float(site['timezone']),float(site['pressure']),float(site['temperature']),float(site['twilight_minsza']),float(site['twilight_maxsza']),float(site['normal_step']),float(site['twilight_step'])))
-        t2.start()
-        
-        while t2.isAlive():
-            self.update_clock()
-            self.root.update()
-            time.sleep(0.2)
-        self.high_sun_time,self.high_sun_sza,self.low_sun_time,self.low_sun_sza,self.sunrise,self.sunset,self.day_length, self.schedule,self.tasks_out=t2.join()
-        
-        
+        self.high_sun_time,self.high_sun_sza,self.low_sun_time,self.low_sun_sza,self.sunrise,self.sunset,self.day_length, self.schedule,self.tasks_out=dynamic_schedule(float(site['latitude']),float(site['longitude']),float(site['timezone']),float(site['pressure']),float(site['temperature']),float(site['twilight_minsza']),float(site['twilight_maxsza']),float(site['normal_step']),float(site['twilight_step']))
         for i in range(len(self.schedule)):
             self.schedule[i]=self.schedule[i]-datetime.timedelta(seconds=int(scan_prop_defaults['t_meas'])/2)
         self.high_sun_sza_entry.config(text=(str("%#06.2f" % self.high_sun_sza)))
@@ -260,45 +244,45 @@ class Application:
         self.sunset_entry.config(text=str(self.sunset.time()))
         self.day_length_entry.config(text=str(self.day_length))
         self.write_output("Schedule loaded")
-        print(self.schedule)
+        #print self.schedule
         f.clf()
-        f.subplots_adjust(right=0.8,top=0.95,hspace=0.4)
+        f.subplots_adjust(right=0.63,top=0.95,hspace=0.4)
         self.time_series=f.add_subplot(2,1,2)
         plt.setp(self.time_series.xaxis.get_majorticklabels(), rotation=45,ha='right')
         self.time_series.set_ylabel('SZA')
         self.time_series.set_title('Todays Measurements')
-        lines1,=self.time_series.plot([],[],'ow',markeredgecolor='k')
-        lines2,=self.time_series.plot([],[],'ob',markeredgecolor='k')
-        lines3,=self.time_series.plot([],[],'og',markeredgecolor='k')
-        lines4,=self.time_series.plot([],[],'oy',markeredgecolor='k')
-        lines5,=self.time_series.plot([],[],'or',markeredgecolor='k')
-        lines6,=self.time_series.plot([],[],'om',markeredgecolor='k')
-        lines7,=self.time_series.plot([],[],'oc',markeredgecolor='k')
+        lines1,=self.time_series.plot([],[],'ow')
+        lines2,=self.time_series.plot([],[],'ob')
+        lines3,=self.time_series.plot([],[],'og')
+        lines4,=self.time_series.plot([],[],'oy')
+        lines5,=self.time_series.plot([],[],'or')
+        lines6,=self.time_series.plot([],[],'om')
+        lines7,=self.time_series.plot([],[],'oc')
 
         lines=[lines1,lines2,lines3,lines6,lines4,lines5,lines7]
         labels=['Scheduled','Successful Manual','Successful Scheduled','Successful HD','Failed Manual','Failed Scheduled','Failed HD']
         
         self.time_series.plot(self.schedule,self.tasks_out,'-k')
-        self.time_series.plot(self.schedule,self.tasks_out,'ow',markeredgecolor='k')
+        self.time_series.plot(self.schedule,self.tasks_out,'ow')
        # self.time_series.xaxis.set_tick_params(rotation=45)
-        self.time_series.legend(lines,labels,loc='center right',bbox_to_anchor=(1.275, 0.5))
+        self.time_series.legend(lines,labels,loc='center right',bbox_to_anchor=(1.7, 0.5))
         self.scan_results=f.add_subplot(2,1,1)
         self.scan_results.set_ylabel('PMT (V)')
         self.scan_results.set_xlabel('Step')
-        print('drawing')
-        self.plot_window.draw()
+
+        self.plot_window.show()
         
         self.reset_flag=0
         if self.schedule_status==1:
             self.write_output("Schedule Started")
             self.countdown_entry.config({"background": "Green"})
             self.task_sza_entry.config({"background": "Green"})
-        print('done')   
+            
     def update_clock_main(self):
         """Function that calls update clock every 200ms, they are separated to allow
         manual calls of update clock"""
         self.update_clock()
-        self.main_loop=self.root.after(100, self.update_clock_main)   
+        self.main_loop=self.root.after(200, self.update_clock_main)   
     
     def create_archive(self):
         now=datetime.datetime.now()
@@ -318,14 +302,14 @@ class Application:
         time_out=format_time(now_utc)
         local_time=now_utc+datetime.timedelta(hours=int(site['timezone']))
         local_time_out=format_time(local_time)
-       # print('updating')
         if (self.reset_time-local_time).total_seconds()<0 and self.reset_flag==0 and self.load_flag==0:
             self.reset_flag=1
             self.reset_time=self.reset_time+datetime.timedelta(hours=24)
             self.write_output('Archiving')
             self.create_archive()
             self.log_out_text.delete("1.0",tk.END)
-            self.threaded_solar()
+            self.t2=threading.Thread(target=self.threaded_solar)
+            self.t2.start()
             
         self.sza,self.saz=sunzen_ephem(now_utc,float(site['latitude']),float(site['longitude']),float(site['pressure']),float(site['temperature']))
 
@@ -360,8 +344,7 @@ class Application:
         self.sza_entry.configure(text="%.2f" % self.sza)
         self.saz_entry.configure(text="%.2f" % self.saz)
         #self.root.after(100, self.update_clock)
-        #print('finished updating')
-
+        
     def write_output(self,text):
         """Write text to the output and to the log file"""
         self.timestamp=format_time(datetime.datetime.utcnow()+datetime.timedelta(hours=int(site['timezone'])))    
@@ -453,7 +436,7 @@ class Application:
 
             self.write_output("Making Scan Number "+str(i+1)+" of "+str(self.hdnscans.get()))
             self.end=datetime.datetime.now()
-            que = queue.Queue()
+            que = Queue.Queue()
             t3=threading.Thread(target=lambda q, arg1: q.put(giga.acquire_spectra(arg1)), args=(que, self.sza))
             t3.start()
 
@@ -472,7 +455,7 @@ class Application:
                 sza_in=all_data['sza'].mean()
 
                 self.scan_results.plot(measurement_panda['pixel_wavelengths'][0],measurement_panda['calibrated_pixel_counts'][0],color=colors[i],label="Single Scan")
-                self.plot_window.draw()
+                self.plot_window.show()
             else:
                 fail_counts+=1
                 self.write_output('Scan Failed, RC '+str(measurement_panda['rc'][0])+' - '+measurement_panda['rc_message'][0])
@@ -480,13 +463,13 @@ class Application:
 #            
         if len(all_scans)!=0:
             self.write_output("Measurment Complete, "+str(fail_counts)+" Failed Scans")
-            self.time_series.plot(start,sza_in,'mo',label='Successful High Density',markeredgecolor='k')
+            self.time_series.plot(start,sza_in,'mo',label='Successful High Density')
             create_panda_file(def_paths_files['datapath'],all_data,start,sza_in,hd=True)
 
         else:
             self.write_output("Measurment Failed")
-            self.time_series.plot(start,sza_in,'co',label='Failed High Density',markeredgecolor='k')
-        self.plot_window.draw()
+            self.time_series.plot(start,sza_in,'co',label='Failed High Density')
+        self.plot_window.show()
 
         self.task_run=0
         self.toggle_buttons('normal')
@@ -533,7 +516,7 @@ class Application:
 
             self.write_output("Making Scan Number "+str(i+1)+" of "+str(self.nscans.get()))
             self.end=datetime.datetime.now()
-            que = queue.Queue()
+            que = Queue.Queue()
             t3=threading.Thread(target=lambda q, arg1: q.put(giga.acquire_spectra(arg1)), args=(que, self.sza))
             t3.start()
 
@@ -556,7 +539,7 @@ class Application:
                 self.scan_results.plot(measurement_panda['pixel_wavelengths'][0],measurement_panda['calibrated_pixel_counts'][0],'-b',label="Single Scan")
                 self.scan_results.plot(measurement_panda['pixel_wavelengths'][0],np.average(all_scans,axis=0),'-r',label="Average")
                 self.scan_results.legend(loc='center right',bbox_to_anchor=(1.7, 0.5))
-                self.plot_window.draw()
+                self.plot_window.show()
             else:
                 fail_counts+=1
                 self.write_output('Scan Failed, RC '+str(measurement_panda['rc'][0])+' - '+measurement_panda['rc_message'][0])
@@ -584,18 +567,18 @@ class Application:
         if len(all_scans)!=0:
             self.write_output("Measurment Complete, "+str(fail_counts)+" Failed Scans")
             if mode =="manual":
-                self.time_series.plot(start,sza_in,'bo',label='Successful Manual',markeredgecolor='k')
+                self.time_series.plot(start,sza_in,'bo',label='Successful Manual')
             else:
-                self.time_series.plot(start,sza_in,'go',label='Successful Scheduled',markeredgecolor='k')
+                self.time_series.plot(start,sza_in,'go',label='Successful Scheduled')
             create_panda_file(def_paths_files['datapath'],all_data,start,sza_in)
 
         else:
             self.write_output("Measurment Failed")
             if mode =="manual":
-                self.time_series.plot(start,sza_in,'yo',label='Failed Manual',markeredgecolor='k')
+                self.time_series.plot(start,sza_in,'yo',label='Failed Manual')
             else:
-                self.time_series.plot(start,sza_in,'ro',label='Failed Scheduled',markeredgecolor='k')
-        self.plot_window.draw()
+                self.time_series.plot(start,sza_in,'ro',label='Failed Scheduled')
+        self.plot_window.show()
 
         self.task_run=0
         self.toggle_buttons('normal')
@@ -612,13 +595,13 @@ class Application:
 if __name__ == '__main__':
     "Start App!"
     giga=gigahertz()
-    config=configparser.ConfigParser()
+    config=ConfigParser.ConfigParser()
     config.read('gigapy.ini')
     site=config_out('site',config)
     scan_prop_defaults=config_out('scan',config)
     def_paths_files=config_out('pathsfiles',config)
     app = QtGui.QApplication([])
-    f=Figure(figsize=(12.5,9.5),dpi=100)
+    f=Figure(figsize=(9,8),dpi=100)
 
     Application(giga)
 

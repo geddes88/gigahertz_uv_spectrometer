@@ -146,7 +146,7 @@ class gigahertz(object):
         ip.restype=ctypes.c_int
         ip.argtypes=(ctypes.c_int,ctypes.c_char_p,ctypes.c_size_t)
         results=ip(self.handle,the_buffer,buffer_size)
-        print(the_buffer.value)
+        print the_buffer.value
     def get_calibration_info(self):
         """get the current programmed wavelength assignment of the pixels, im 
         assuming we probably won't need this, can fit to solar. Should be linearish.
@@ -160,7 +160,7 @@ class gigahertz(object):
         rc=load_calib(self.handle)
         if rc!=0:
             rc_out.append(rc)
-            print('Failed to load calib, error code - '+str(rc))
+            print 'Failed to load calib, error code - '+str(rc)
             
         wav_map=np.zeros(2048,dtype=np.float64)
         c_wav=np.ctypeslib.as_ctypes(wav_map)
@@ -172,7 +172,7 @@ class gigahertz(object):
             rc_out.append(rc)
 
             wav_map=np.array([np.nan]*2048)
-            print('Failed to get wavelength mapping, error code - '+str(rc))
+            print 'Failed to get wavelength mapping, error code - '+str(rc)
             
         wav_cal=np.zeros(2048,dtype=np.float64)
         c_wav_cal=np.ctypeslib.as_ctypes(wav_cal)
@@ -184,7 +184,7 @@ class gigahertz(object):
             rc_out.append(rc)
 
             wav_cal=np.array([np.nan]*2048)
-            print('Failed to get wavelength mapping, error code 2 - '+str(rc))   
+            print 'Failed to get wavelength mapping, error code 2 - '+str(rc)   
             
         return rc_out,wav_map,wav_cal
         
@@ -214,10 +214,10 @@ class gigahertz(object):
     def print_rc_messages(self,rc_list):
         if len(rc_list)>0:
             for rc in rc_list:
-                if str(rc) in list(errors.keys()):
-                    print(errors[str(rc)])
+                if str(rc) in errors.keys():
+                    print errors[str(rc)]
                 else:
-                    print(str(rc)+" Unknown Error")
+                    print str(rc)+" Unknown Error"
                     
     def close_instrument(self):
         releaseHandle = DLLIMPORT["GOMDBTS2048_releaseHandle"]
@@ -241,10 +241,10 @@ class gigahertz(object):
         if connection_type=="USB":
             rc = getHandle(b"BTS2048_42607", ctypes.byref(self.handle))
         else:
-            rc = getHandle(b"BTS2048_0_IP"+ip.encode("utf-8"), ctypes.byref(self.handle))
+            rc = getHandle(b"BTS2048_0_IP"+ip, ctypes.byref(self.handle))
 
         if rc!=0:
-            print('Failed to get handle, error code - '+str(rc))
+            print 'Failed to get handle, error code - '+str(rc)
         #self.set_dhcp(True)
         
     def set_dhcp(self,state):
@@ -254,7 +254,7 @@ class gigahertz(object):
         dhcp.argtypes = (ctypes.c_int,ctypes.c_bool)
         rc=dhcp(self.handle,ctypes.c_bool(state))
         if rc!=0:
-            print('Failed to set dhcp server - '+str(rc))
+            print 'Failed to set dhcp server - '+str(rc)
     def set_wavelength_range(self,min_wav,max_wav,step):
         self.min_wav=min_wav
         self.max_wav=max_wav
@@ -271,7 +271,7 @@ class gigahertz(object):
         rc_out=[]
         if rc!=0:
             rc_out.append(rc)
-            print('Failed to set wavelength parameters, error code - '+str(rc))
+            print 'Failed to set wavelength parameters, error code - '+str(rc)
 #        cw_out=ctypes.c_double()
 #        wav_function = DLLIMPORT['GOMDBTS2048_getMaxValidWavelength']
 #        wav_function.restype = ctypes.c_int
@@ -288,7 +288,7 @@ class gigahertz(object):
         toggle_cooling.argtypes = (ctypes.c_int,ctypes.c_bool)
         rc=toggle_cooling(self.handle,ctypes.c_bool(state))
         if rc!=0:
-            print('Failed to set cooling error code - '+str(rc))
+            print 'Failed to set cooling error code - '+str(rc)
     
     def check_cooling_status(self):
         check_cooling=DLLIMPORT["GOMDBTS2048_getCoolingState"]
@@ -297,7 +297,7 @@ class gigahertz(object):
         cool_result=ctypes.c_int(-1)
         rc = check_cooling(self.handle, ctypes.byref(cool_result))
         if rc!=0:
-            print('Failed to check cooling state - '+str(rc))
+            print 'Failed to check cooling state - '+str(rc)
         return cool_result.value
         
     def check_straylight_status(self):
@@ -307,7 +307,7 @@ class gigahertz(object):
         stray_result=ctypes.c_int(-1)
         rc = check_stray(self.handle, ctypes.byref(stray_result))
         if rc!=0:
-            print('Failed to check straylight state - '+str(rc))
+            print 'Failed to check straylight state - '+str(rc)
         return stray_result.value
 
     def spectra_output(self):
@@ -320,7 +320,7 @@ class gigahertz(object):
         rc=raw_pixel_f(self.handle,c_raw)
         if rc!=0:
             raw_arr=np.array([np.nan]*2048)
-            print('Failed to get raw pixel counts, error code - '+str(rc))
+            print 'Failed to get raw pixel counts, error code - '+str(rc)
             
         cal_arr=np.zeros(2048,dtype=np.float64)
         c_cal=np.ctypeslib.as_ctypes(cal_arr)
@@ -330,7 +330,7 @@ class gigahertz(object):
         rc2=cal_pixel_f(self.handle,c_cal)
         if rc2!=0:
             cal_arr=np.array([np.nan]*2048)
-            print('Failed to get calibrated pixel counts, error code - '+str(rc2))
+            print 'Failed to get calibrated pixel counts, error code - '+str(rc2)
             
         dark_arr=np.zeros(2048,dtype=np.float64)
         c_dark=np.ctypeslib.as_ctypes(dark_arr)
@@ -340,7 +340,7 @@ class gigahertz(object):
         rc2=dark_f(self.handle,c_dark)
         if rc2!=0:
             dark_arr=np.array([np.nan]*2048)
-            print('Failed to get dark counts, error code - '+str(rc2))
+            print 'Failed to get dark counts, error code - '+str(rc2)
         
         
         
@@ -354,7 +354,7 @@ class gigahertz(object):
         rc2=wav_arr_f(self.handle,ctypes.c_bool(False),c_wav)
         if rc2!=0:
             wav_arr_p=np.array([np.nan]*2048)
-            print('Failed to get pixel_wavlengths, error code - '+str(rc2))
+            print 'Failed to get pixel_wavlengths, error code - '+str(rc2)
             
         spec_length=int((self.max_wav-self.min_wav)/self.step)+1
         spec_arr=np.zeros(int(spec_length),dtype=np.float64)
@@ -368,12 +368,12 @@ class gigahertz(object):
         rc2=spec_f(self.handle,c_spec)
         if rc2!=0:
             spec_arr=np.array([np.nan]*int(spec_length))
-            print('Failed to get calibrated pixel counts, error code - '+str(rc2))
+            print 'Failed to get calibrated pixel counts, error code - '+str(rc2)
         
         rc2=wav_arr_f(self.handle,ctypes.c_bool(True),c_wav)
         if rc2!=0:
             wav_arr_s=np.array([np.nan]*int(spec_length))
-            print('Failed to get pixel_wavlengths, error code - '+str(rc2))  
+            print 'Failed to get pixel_wavlengths, error code - '+str(rc2)  
             
             
             
@@ -385,7 +385,7 @@ class gigahertz(object):
         integration_time=ctypes.c_int(-999)
         rc = get_integration(self.handle, ctypes.byref(integration_time))
         if rc!=0:
-            print('Failed to get integration gime - '+str(rc))
+            print 'Failed to get integration gime - '+str(rc)
         out=integration_time.value
         
         """Measure the temperature of the sensor, returns in Kelvin"""
@@ -396,7 +396,7 @@ class gigahertz(object):
         scale_factor=ctypes.c_double(-999)
         rc = scale_factor_f(self.handle, ctypes.byref(scale_factor))
         if rc!=0:
-            print('Failed to get integration gime - '+str(rc))
+            print 'Failed to get integration gime - '+str(rc)
         out2=scale_factor.value
         
 
@@ -412,28 +412,14 @@ class gigahertz(object):
         measurement.restype = ctypes.c_int
         measurement.argtypes = [ctypes.c_int]
         rc=measurement(self.handle)
-        print(rc)
+        print rc
         rc_out=[]
         if rc!=0:
             rc_out.append(rc)
-        if rc==0:
-            raw_arr,cal_arr,spec_arr,wav_arr_s,wav_arr_p,dark_arr,out,out2=self.spectra_output()
-            
-            temperature=self.measure_temperature()
-        else:
-            spec_length=int((self.max_wav-self.min_wav)/self.step)+1
-
-            temperature=np.nan
-            raw_arr=[np.nan]*2048
-            cal_arr=[np.nan]*2048
-            spec_arr=[np.nan]*spec_length
-            wav_arr_s=[np.nan]*spec_length
-            wav_arr_p=[np.nan]*2048
-            dark_arr=[np.nan]*2048
-            out=np.nan
-            out2=np.nan
-            
-
+        raw_arr,cal_arr,spec_arr,wav_arr_s,wav_arr_p,dark_arr,out,out2=self.spectra_output()
+        
+        temperature=self.measure_temperature()
+        
         output_panda=pd.DataFrame()
 
         output_panda['raw_pixel_counts']=[np.array(raw_arr)]
@@ -449,7 +435,7 @@ class gigahertz(object):
         output_panda['rc']=rc
         output_panda['rc_message']='No Errors'
         if rc!=0 and str(rc):
-            if str(rc) in list(errors.keys()):    
+            if str(rc) in errors.keys():    
                 output_panda['rc_message']=errors[str(rc)]
             else:
                 output_panda['rc_message']='Unknown Error'
@@ -463,7 +449,7 @@ class gigahertz(object):
         measurement.restype = ctypes.c_int
         measurement.argtypes = [ctypes.c_int]
         rc=measurement(self.handle)
-        print('measurement return - '+str(rc))
+        print 'measurement return - '+str(rc)
         raw_arr,cal_arr,spec_arr,wav_arr_s,wav_arr_p,dark_arr,out=self.spectra_output()
         return raw_arr,cal_arr,spec_arr,wav_arr_s,wav_arr_p,dark_arr,out
     
@@ -488,7 +474,7 @@ class gigahertz(object):
         filter_type=ctypes.c_int(-999)
         rc = get_filter(self.handle, ctypes.byref(filter_type))
         if rc!=0:
-            print('Failed to get filter - '+str(rc))
+            print 'Failed to get filter - '+str(rc)
         out=filter_type.value
         return out
     
@@ -500,7 +486,7 @@ class gigahertz(object):
         temperature=ctypes.c_double(-999)
         rc = get_temperature(self.handle, ctypes.byref(temperature))
         if rc!=0:
-            print('Failed to check temperature - '+str(rc))
+            print 'Failed to check temperature - '+str(rc)
         out=temperature.value+273.15
         return out
     
@@ -523,11 +509,11 @@ class gigahertz(object):
             while ready!=2:
                 ready=self.check_cooling_status()
                 if ready==1:
-                    print("Waiting to cool down")
+                    print "Waiting to cool down"
                 if ready==0:
                     break
                 if ready==2:
-                    print("Cooling complete")
+                    print "Cooling complete"
                 time.sleep(1)
         rc_out=[]
         dtm_function = DLLIMPORT['GOMDBTS2048_spectralSetDynamicTimeMode']
@@ -536,7 +522,7 @@ class gigahertz(object):
         rc = dtm_function(self.handle, ctypes.c_bool(dynamic_time_mode))
         if rc!=0:
             rc_out.append(rc)
-            print('Failed to set dynamic time mode, error code - '+str(rc))
+            print 'Failed to set dynamic time mode, error code - '+str(rc)
             
         it_function = DLLIMPORT['GOMDBTS2048_spectralSetIntegrationTimeInus']
         it_function.restype = ctypes.c_int
@@ -544,7 +530,7 @@ class gigahertz(object):
         rc = it_function(self.handle, ctypes.c_int(integration_time))
         if rc!=0:
             rc_out.append(rc)
-            print('Failed to set integration time, error code - '+str(rc))
+            print 'Failed to set integration time, error code - '+str(rc)
             
         offset_function = DLLIMPORT['GOMDBTS2048_spectralSetOffsetMode']
         offset_function.restype = ctypes.c_int
@@ -552,7 +538,7 @@ class gigahertz(object):
         rc = offset_function(self.handle, ctypes.c_int(offset_mode))
         if rc!=0:
             rc_out.append(rc)
-            print('Failed to set offset mode, error code - '+str(rc))
+            print 'Failed to set offset mode, error code - '+str(rc)
         return rc_out   
             
 #        offset_function = DLLIMPORT['GOMDBTS2048_spectralSetAdvancedNoiseReduction']
