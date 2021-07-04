@@ -130,7 +130,7 @@ class Application:
         giga.dynamic_time_mode=self.dyn_set_int.get()
         giga.integration_time=self.manual_int.get()
        # print(giga.dynamic_time_mode)
-        self.toggle_schedule_run()
+       # self.toggle_schedule_run()
         self.update_clock_main()
         self.root.mainloop()
         
